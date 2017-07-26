@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     public int jumpForce;
 
     public int airJump;
-    private int airJumpTime;
+    public int airJumpTime;
 
     public bool isGrounded;
 

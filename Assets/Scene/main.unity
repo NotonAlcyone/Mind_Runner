@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 30041374}
   - component: {fileID: 30041373}
   - component: {fileID: 30041372}
-  - component: {fileID: 30041377}
   - component: {fileID: 30041371}
   - component: {fileID: 30041376}
   m_Layer: 0
@@ -226,7 +225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bg: {fileID: 1233385269}
   jumpForce: 5
-  airJump: 3
+  airJump: 2
+  airJumpTime: 0
   isGrounded: 0
   groundLayer:
     serializedVersion: 2
@@ -346,25 +346,11 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a9247ebfd3d726c49bb544ea407046e0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &30041377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 30041370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 456f48def1201634eb008e9fc20ff5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillStat: 0
-  skillDuration: 2
-  skillCoolTime: 5
 --- !u!1 &483180292
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +418,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BulletTime
+  m_Text: 'Jumping
+
+    Montage'
 --- !u!222 &483180295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -592,7 +580,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -609,7 +597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 30041377}
+      - m_Target: {fileID: 1901040466}
         m_MethodName: skillActivated
         m_Mode: 1
         m_Arguments:
@@ -931,11 +919,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1901040462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5116a4f573ade6e479a13be9fe061343, type: 3}
+  m_Script: {fileID: 11500000, guid: d3170f89d0f0ce64da0263c38befdf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P: {fileID: 30041371}
+  skillPhase: 0
   button: {fileID: 784271517}
-  p: {fileID: 30041377}
+  skillDuration: 5
+  skillCoolTime: 20
+  cutSceneTime: 2
+  skillMotion: {fileID: 1119611629981514, guid: d86cd7556df4aa44a8a2fee335d18a8a,
+    type: 2}
 --- !u!1 &2009735310
 GameObject:
   m_ObjectHideFlags: 0
