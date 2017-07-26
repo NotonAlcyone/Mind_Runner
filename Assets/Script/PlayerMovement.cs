@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D playerRigidbody;
     private Collider2D collision;
+    private Animator anime;
+
+
+    public BackgroundControl Bg;
 
     public int jumpForce;
 
@@ -20,6 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start()
     {
+
+        anime = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<Collider2D>();
 
@@ -44,6 +50,9 @@ public class PlayerMovement : MonoBehaviour {
                 playerJump();
             }
         }
+
+        anime.SetFloat("Move", Bg.Speed[0]);
+        anime.SetBool("Grounded", isGrounded);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // collider2D 연속 충돌 체크 True 해주기
@@ -54,4 +63,5 @@ public class PlayerMovement : MonoBehaviour {
     {
         playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpForce);
     }
+
 }
