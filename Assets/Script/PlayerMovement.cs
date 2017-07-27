@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D playerRigidbody;
     private Collider2D collision;
+    
     private Animator anime;
 
 
@@ -18,7 +19,6 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool isGrounded;
 
-
     public LayerMask groundLayer;
     public LayerMask goalLayer;
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
         anime = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<Collider2D>();
-
+        Physics2D.IgnoreLayerCollision(9, 10); //플레이어와 장애물의 물리적 충돌 배제
     }
 
     void Update()
@@ -55,8 +55,13 @@ public class PlayerMovement : MonoBehaviour {
         anime.SetBool("Grounded", isGrounded);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) // collider2D 연속 충돌 체크 True 해주기
+    private void OnTriggerEnter2D(Collider2D enemyTrigger) // collider2D 연속 충돌 체크 True 해주기
     {
+        
+        if (enemyTrigger.gameObject.tag.Equals("Enemy"))
+        {
+            Debug.Log("충돌");
+        }
         
     }
     void playerJump()
