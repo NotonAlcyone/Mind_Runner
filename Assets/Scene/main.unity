@@ -251,9 +251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bc6e8c05d51ea459dca4c70f4707c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 1901040466}
   Bg: {fileID: 1233385269}
-  jumpForce: 5
-  airJump: 2
+  jumpForce: 8
+  airJump: 0
   airJumpTime: 0
   isGrounded: 0
   groundLayer:
@@ -294,18 +295,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16}
+  m_Offset: {x: 0, y: 0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.09, y: 0.24}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.32}
+  m_Size: {x: 0.1, y: 0.24}
   m_EdgeRadius: 0
 --- !u!212 &30041374
 SpriteRenderer:
@@ -339,7 +340,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: 503733f29914a87429c895f2fc8085b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51693d876ca6fb641ab91b59bcf58950, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -356,8 +357,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 30041370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.42, y: -1.68, z: 0}
-  m_LocalScale: {x: 5.2195115, y: 5.2195115, z: 5.2195115}
+  m_LocalPosition: {x: -6.61, y: -2.29, z: 0}
+  m_LocalScale: {x: 11.46373, y: 11.463731, z: 11.46373}
   m_Children:
   - {fileID: 581912148}
   m_Father: {fileID: 0}
@@ -447,9 +448,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Jumping
+  m_Text: 'Hallowed
 
-    Montage'
+    Ground'
 --- !u!222 &483180295
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -591,7 +592,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16}
+  m_Offset: {x: 0, y: 0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -602,7 +603,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.32}
+  m_Size: {x: 0.1, y: 0.24}
   m_EdgeRadius: 0
 --- !u!1 &704074524
 GameObject:
@@ -649,6 +650,7 @@ MonoBehaviour:
   enemy:
   - {fileID: 1587385895155272, guid: 16cf4645ce6811d45abd624d480c3055, type: 2}
   - {fileID: 1350889357034186, guid: 004b46d6b6bfefd40bb3305d7f197f5d, type: 2}
+  - {fileID: 1207339465782622, guid: 3f6c2c9ac62fd304ca528c6af9c02dcf, type: 2}
   spawnPoint: {fileID: 1504688}
   invokeTime: 3
 --- !u!1 &784271515
@@ -1070,6 +1072,8 @@ MonoBehaviour:
   skillDuration: 5
   skillCoolTime: 20
   cutSceneTime: 2
+  col: {fileID: 581912149}
+  skillStat: 0
   skillMotion: {fileID: 1119611629981514, guid: d86cd7556df4aa44a8a2fee335d18a8a,
     type: 2}
 --- !u!1 &2009735310

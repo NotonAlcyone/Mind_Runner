@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 95188693096356226}
   m_Layer: 9
   m_Name: witch
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114066917974051266}
   m_Layer: 0
   m_Name: Warrior
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -118,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.6}
+  m_Size: {x: 0.16, y: 0.2}
   m_EdgeRadius: 0
 --- !u!61 &61749811348305814
 BoxCollider2D:
@@ -189,7 +189,7 @@ MonoBehaviour:
   moveSpeed: -3
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   destroyPoint: {fileID: 0}
 --- !u!212 &212206921800369850
 SpriteRenderer:

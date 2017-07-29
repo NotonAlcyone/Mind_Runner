@@ -17,12 +17,16 @@ public class SkillControl : MonoBehaviour {
     private float passedTime;
     private float remainCoolTime;
 
+    public Collider2D col;
+
+    public bool skillStat;
     public GameObject skillMotion;
     private GameObject tmp;
 
 
     void Start()
     {
+        skillStat = false;
         coolTimeChecker = 0;// 선쿨
         passedTime = 0;
         skillPhase = false;
@@ -80,6 +84,7 @@ public class SkillControl : MonoBehaviour {
     }
     void startCutScene()
     {
+        skillStat = true;
         Time.timeScale = 0.1f;
         tmp = Instantiate(skillMotion, transform.parent);
         Debug.Log("컷신 시작");
@@ -95,12 +100,15 @@ public class SkillControl : MonoBehaviour {
     void startSkill()
     {
         Debug.Log("점프 3회 추가");
+        //col.enabled = false; 스킬 사용중 충돌 면역
         P.airJump += 3;
         P.airJumpTime += 3;
         Invoke("endSkill", skillDuration);
     }
     void endSkill()
     {
+        skillStat = false;
+        //col.enabled = true; 스킬 사용중 충돌 면역
         Debug.Log("점프 추가 종료");
         P.airJump -= 3;
     }

@@ -25,5 +25,13 @@ public class StartScene : MonoBehaviour {
         {
             //SceneManager.LoadScene)("");
         }
+        else if (click == 1500)
+        {
+
+        }
+        else if (click == 2000)
+        {
+
+        }
     }
 }

@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     
     private Animator anime;
 
-
+    public SkillControl skill;
     public BackgroundControl Bg;
 
     public int jumpForce;
@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 
         anime.SetFloat("Move", Bg.Speed[0]);
         anime.SetBool("Grounded", isGrounded);
+        anime.SetBool("Skill",skill.skillStat);
     }
 
     private void OnTriggerEnter2D(Collider2D enemyTrigger) // collider2D 연속 충돌 체크 True 해주기
