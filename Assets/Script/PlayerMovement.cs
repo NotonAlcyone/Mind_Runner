@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public SkillControl skill;
     public BackgroundControl Bg;
+    public ScoreSaver score;
 
     public int jumpForce;
 
@@ -21,10 +22,13 @@ public class PlayerMovement : MonoBehaviour {
 
     public LayerMask groundLayer;
     public LayerMask goalLayer;
-
+    public GameObject jumpEffect;
+    public GameObject gameEnd;
+    public Canvas can;
+    private bool end;
     void Start()
     {
-
+        end = false;
         anime = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         collision = GetComponent<Collider2D>();
@@ -38,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             airJumpTime = airJump;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) //점프 키 입력
+        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetMouseButtonDown(0)) //점프 키 입력
         {
             if (isGrounded == true) // 지상이라면 점프
             {
@@ -47,6 +51,8 @@ public class PlayerMovement : MonoBehaviour {
             else if (isGrounded == false && airJumpTime > 0) // 공중이라면 다단점프 잔여 체크
             {
                 airJumpTime--;
+                Instantiate(jumpEffect, transform.position,transform.rotation,transform);
+
                 playerJump();
             }
         }
@@ -59,9 +65,13 @@ public class PlayerMovement : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D enemyTrigger) // collider2D 연속 충돌 체크 True 해주기
     {
         
-        if (enemyTrigger.gameObject.tag.Equals("Enemy"))
+        if (enemyTrigger.gameObject.tag.Equals("Enemy") && end == false)
         {
-            Debug.Log("충돌");
+            end = true;
+            Debug.Log(enemyTrigger.gameObject.name);
+            PlayerPrefs.SetString(enemyTrigger.gameObject.name, "true");
+            score.GameEnd();
+            Instantiate(gameEnd,can.transform);
         }
         
     }

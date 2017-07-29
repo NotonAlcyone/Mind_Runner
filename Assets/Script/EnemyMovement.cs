@@ -11,9 +11,10 @@ public class EnemyMovement : MonoBehaviour
     private Animator anime;
     private Rigidbody2D enemyRigidBody;
     private Collider2D enemyCollider;
+    private Collider2D Player;
 
     private bool isGrounded;
-    public GameObject destroyPoint;
+    private GameObject destroyPoint;
 
 
 
@@ -23,7 +24,9 @@ public class EnemyMovement : MonoBehaviour
         anime = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<Collider2D>();
+        Player = GameObject.Find("Player").GetComponent<Collider2D>();
         destroyPoint = GameObject.Find("DestroyPoint"); // 생성시 파괴 위치 확인
+        Physics2D.IgnoreCollision(enemyCollider,Player);
     }
     void Update()
     {

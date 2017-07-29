@@ -16,7 +16,11 @@ public class StartScene : MonoBehaviour {
     }
     public void credit()
     {
-
+        SceneManager.LoadScene("Credit");
+    }
+    public void dict()
+    {
+        SceneManager.LoadScene("Dict");
     }
     public void logoCredit()
     {
@@ -33,5 +37,9 @@ public class StartScene : MonoBehaviour {
         {
 
         }
+    }
+    public void Delete()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

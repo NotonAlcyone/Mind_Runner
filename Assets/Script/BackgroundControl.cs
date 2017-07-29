@@ -20,7 +20,6 @@ public class BackgroundControl : MonoBehaviour {
         for (int i = 0; i < BG.Length; i++)
         {
 
-            Debug.Log(Speed[i]);
             render[i] = BG[i].GetComponent<Renderer>().material;
         }
 
