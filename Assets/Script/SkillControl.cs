@@ -87,29 +87,27 @@ public class SkillControl : MonoBehaviour {
         skillStat = true;
         Time.timeScale = 0.1f;
         tmp = Instantiate(skillMotion, transform.parent);
-        Debug.Log("컷신 시작");
+
         Invoke("endCutScene", cutSceneTime * 0.1f);
     }
     void endCutScene()
     {
         Time.timeScale = 1.0f;
         Destroy(tmp);
-        Debug.Log("컷신 끝");
+
         startSkill();
     }
     void startSkill()
     {
-        Debug.Log("점프 3회 추가");
-        //col.enabled = false; 스킬 사용중 충돌 면역
-        P.airJump += 3;
-        P.airJumpTime += 3;
+
+        col.enabled = false; 
+
         Invoke("endSkill", skillDuration);
     }
     void endSkill()
     {
         skillStat = false;
-        //col.enabled = true; 스킬 사용중 충돌 면역
-        Debug.Log("점프 추가 종료");
-        P.airJump -= 3;
+        col.enabled = true;
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -42,8 +43,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             airJumpTime = airJump;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) ||Input.GetMouseButtonDown(0)) //점프 키 입력
-        {
+
+
+        anime.SetFloat("Move", Bg.Speed[0]);
+        anime.SetBool("Grounded", isGrounded);
+        anime.SetBool("Skill",skill.skillStat);
+    }
+
+    public void jumpcheck()
+    {
+      
             if (isGrounded == true) // 지상이라면 점프
             {
                 playerJump();
@@ -51,15 +60,11 @@ public class PlayerMovement : MonoBehaviour {
             else if (isGrounded == false && airJumpTime > 0) // 공중이라면 다단점프 잔여 체크
             {
                 airJumpTime--;
-                Instantiate(jumpEffect, transform.position,transform.rotation,transform);
+                Instantiate(jumpEffect, transform.position, transform.rotation, transform);
 
                 playerJump();
             }
-        }
-
-        anime.SetFloat("Move", Bg.Speed[0]);
-        anime.SetBool("Grounded", isGrounded);
-        anime.SetBool("Skill",skill.skillStat);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D enemyTrigger) // collider2D 연속 충돌 체크 True 해주기
@@ -70,6 +75,7 @@ public class PlayerMovement : MonoBehaviour {
             end = true;
             Debug.Log(enemyTrigger.gameObject.name);
             PlayerPrefs.SetString(enemyTrigger.gameObject.name, "true");
+            skill.button.enabled = false;
             score.GameEnd();
             Instantiate(gameEnd,can.transform);
         }

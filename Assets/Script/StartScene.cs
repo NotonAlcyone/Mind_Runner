@@ -22,6 +22,10 @@ public class StartScene : MonoBehaviour {
     {
         SceneManager.LoadScene("Dict");
     }
+    public void rip()
+    {
+        Application.Quit();
+    }
     public void logoCredit()
     {
         click++;
